@@ -5,7 +5,7 @@ const urlsToCache = [
   "./index.html",
   "./HITESH.jpeg",
   "./Hitu.jpg",
-  "./Logo.jpeg",
+  "./Logo.png",
   "./Watermark.png"
 ];
 
