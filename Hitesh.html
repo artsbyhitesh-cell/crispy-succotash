@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitesh Kumar Mishra</title>
+<link rel="icon" type="image/png" href="Hitu.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<style>
+
+/* BODY */
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+    transition:0.5s;
+    background:#000;
+    color:white;
+}
+
+h1{
+    font-size:24px;
+    font-weight:700;
+    margin:8px 0;
+
+    letter-spacing:1px;
+
+    /* Gradient text effect */
+    background:linear-gradient(90deg,#ffffff,#00f2ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Light mode fix */
+.light h1{
+    background:linear-gradient(90deg,#000,#0077ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+p{
+    font-size:16px;
+    font-weight:500;
+    margin-bottom:15px;
+
+    opacity:0.8;
+    letter-spacing:0.5px;
+}
+
+/* Optional glow in dark mode */
+body:not(.light) p{
+    text-shadow:0 0 5px rgba(255,255,255,0.2);
+}
+.container{
+    text-align:center;
+}
+/* LIGHT MODE */
+.light{
+    background:linear-gradient(135deg,#87CEEB,#fff);
+    color:black;
+}
+
+/* BACKGROUND OBJECTS */
+.bg-object{
+    position:fixed;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    filter:blur(50px);
+    opacity:0.7;
+}
+
+.moon{
+    top:50px;
+    right:50px;
+    background:radial-gradient(circle,#fff,#aaa);
+}
+
+.sun{
+    top:50px;
+    right:50px;
+    background:radial-gradient(circle,yellow,orange);
+    display:none;
+}
+
+/* STARS */
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+
+.stars::before{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    box-shadow:
+    50px 100px white, 200px 300px white, 400px 150px white,
+    600px 250px white, 800px 100px white, 1000px 200px white;
+}
+
+/* CLOUDS */
+.clouds{
+    position:fixed;
+    width:100%;
+    height:100%;
+    display:none;
+}
+
+.clouds span{
+    position:absolute;
+    width:120px;
+    height:60px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:move 30s linear infinite;
+}
+
+@keyframes move{
+    from{transform:translateX(-150px);}
+    to{transform:translateX(120vw);}
+}
+
+.light .clouds{display:block;}
+.light .stars{display:none;}
+
+/* CONTAINER */
+.container{
+    width:320px;
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.05);
+}
+
+/* PROFILE IMAGE */
+.profile-img{
+    width:100px;
+    border-radius:50%;
+    border:3px solid white;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+h1{margin:5px 0;}
+p{opacity:0.8;}
+
+/* CLOCK */
+#clock{font-size:28px;font-weight:700;}
+#date{font-size:14px;margin-bottom:10px;}
+
+/* BUTTON */
+.btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
+    padding:12px;
+    border-radius:12px;
+    text-decoration:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+.light .btn{
+    color:black;
+    background:rgba(0,0,0,0.05);
+}
+
+.btn:hover{
+    background:yellow;
+    color:black;
+}
+
+/* ICON COLORS */
+.fa-youtube{color:#FF0000;}
+.fa-instagram{color:#E1306C;}
+.fa-whatsapp{color:#25D366;}
+.fa-telegram{color:#0088cc;}
+.fa-facebook{color:#1877F2;}
+
+/* TOGGLE */
+.toggle{
+    position:fixed;
+    top:15px;
+    right:15px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    font-size:12px;
+}
+
+/* TOAST */
+#toast{
+    position:fixed;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    background:yellow;
+    color:black;
+    padding:10px;
+    border-radius:8px;
+    opacity:0;
+}
+
+#toast.show{opacity:1;}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="stars"></div>
+
+<div class="clouds">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="bg-object moon"></div>
+<div class="bg-object sun"></div>
+
+<div class="toggle" onclick="toggleMode()">🌙</div>
+
+<div class="container">
+
+<!-- PROFILE -->
+<img src="HITESH.jpeg" class="profile-img">
+
+<h1>Hitesh Kumar Mishra</h1>
+<p>Artist | Creator | Editing</p>
+
+<div id="clock"></div>
+<div id="date"></div>
+
+<a class="btn" href="https://youtube.com/@artbyhitesh-m4j?si=siIEpunPzwngyCmD" target="_blank">
+  <i class="fab fa-youtube"></i> YouTube
+</a>
+<a class="btn" href="https://www.instagram.com/artist_hitesh_04?igsh=MXRuZG41eTg3bXN3Mw==" target="_blank">
+  <i class="fab fa-instagram"></i> Instagram
+</a>
+<a class="btn" href="https://wa.me/918260928545?text=Hello%20Hitesh%2C%20I%20found%20you%20through%20your%20website.%20I%20would%20like%20to%20connect%20with%20you." target="_blank">
+  <i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+<div class="btn coming" onclick="comingSoon()">
+    <i class="fab fa-telegram"></i> Telegram 
+</div>
+<div class="btn coming" onclick="comingSoon()">
+    <i class="fab fa-facebook"></i> Facebook
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<footer class="footer">
+© 2026 Hitesh Kumar Mishra
+</footer>
+
+<script>
+
+/* TOGGLE MODE */
+function toggleMode(){
+    document.body.classList.toggle("light");
+
+    let sun=document.querySelector(".sun");
+    let moon=document.querySelector(".moon");
+    let toggle=document.querySelector(".toggle");
+
+    if(document.body.classList.contains("light")){
+        sun.style.display="block";
+        moon.style.display="none";
+        toggle.innerHTML="🌞";
+    } else {
+        sun.style.display="none";
+        moon.style.display="block";
+        toggle.innerHTML="🌙";
+    }
+}
+
+/* CLOCK */
+function updateClock(){
+    let now=new Date();
+
+    document.getElementById("clock").innerText=
+        now.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata"});
+
+    document.getElementById("date").innerText=
+        now.toLocaleDateString("en-IN",{timeZone:"Asia/Kolkata"});
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+/* TOAST */
+function comingSoon(){
+    showToast("Coming Soon 🚀");
+}
+
+function showToast(msg){
+    let t=document.getElementById("toast");
+    t.innerText=msg;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),2000);
+}
+
+window.onload=()=>{
+    showToast("Welcome Hitesh 👋");
+}
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("Service Worker Registered"));
+}
+</script>
+
+</body>
+</html>
