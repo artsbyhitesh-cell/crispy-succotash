@@ -1,7 +1,8 @@
 {
   "name": "Hitesh Kumar Mishra",
   "short_name": "Hitesh",
-  "start_url": "./Hitesh.html",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
@@ -10,7 +11,7 @@
     {
       "src": "Logo.jpeg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
       "src": "Watermark.png",
