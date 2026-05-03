@@ -6,19 +6,14 @@
 
 <title>Hitesh Kumar Mishra</title>
 
-<!-- SEO -->
 <meta name="description" content="Artist portfolio of Hitesh Kumar Mishra showcasing drawings and artwork.">
 
-<!-- Favicon -->
 <link rel="icon" type="image/jpeg" href="Hitu.jpg">
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
 
@@ -41,27 +36,23 @@ body{
 /* HEADING */
 h1 {
     font-size:28px;
-    font-weight: 700;
+    font-weight:700;
     margin:5px 0;
-
     background: linear-gradient(90deg, #ffffff, #00f2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    background-clip: text;
-    color: transparent;
-
-    transition: 0.3s;
 }
 
-/* Light mode heading */
+/* LIGHT MODE */
+.light{
+    background:linear-gradient(135deg,#87CEEB,#fff);
+    color:black;
+}
+
 .light h1 {
     background: linear-gradient(90deg, #000000, #0077ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    background-clip: text;
-    color: transparent;
 }
 
 /* TEXT */
@@ -71,13 +62,7 @@ p{
     opacity:0.8;
 }
 
-/* LIGHT MODE */
-.light{
-    background:linear-gradient(135deg,#87CEEB,#fff);
-    color:black;
-}
-
-/* BACKGROUND OBJECTS */
+/* BACKGROUND */
 .bg-object{
     position:fixed;
     width:140px;
@@ -87,18 +72,8 @@ p{
     opacity:0.7;
 }
 
-.moon{
-    top:50px;
-    right:50px;
-    background:radial-gradient(circle,#fff,#aaa);
-}
-
-.sun{
-    top:50px;
-    right:50px;
-    background:radial-gradient(circle,yellow,orange);
-    display:none;
-}
+.moon{ top:50px; right:50px; background:radial-gradient(circle,#fff,#aaa); }
+.sun{ top:50px; right:50px; background:radial-gradient(circle,yellow,orange); display:none; }
 
 /* STARS */
 .stars{
@@ -197,6 +172,11 @@ p{
 .fa-whatsapp{color:#25D366;}
 .fa-telegram{color:#0088cc;}
 .fa-facebook{color:#1877F2;}
+.fa-twitter{color:#000;}
+
+body:not(.light) .fa-twitter{
+    color:white;
+}
 
 /* TOGGLE */
 .toggle{
@@ -227,6 +207,14 @@ p{
     border-radius:8px;
     opacity:0;
     transition:0.3s;
+}
+
+.fa-x-twitter{
+    color:#000;
+}
+
+body:not(.light) .fa-x-twitter{
+    color:white;
 }
 
 #toast.show{opacity:1;}
@@ -269,9 +257,13 @@ p{
 <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 
-<div class="btn" onclick="comingSoon()">
+<a class="btn" href="https://t.me/hiteshmishra42200" target="_blank">
 <i class="fab fa-telegram"></i> Telegram
-</div>
+</a>
+
+<a class="btn" href="https://x.com/Hitesh4220" target="_blank">
+<i class="fab fa-x-twitter"></i> X
+</a>
 
 <div class="btn" onclick="comingSoon()">
 <i class="fab fa-facebook"></i> Facebook
@@ -285,7 +277,7 @@ p{
 © 2026 Hitesh Kumar Mishra
 </footer>
 
-<script defer>
+<script>
 
 /* MODE TOGGLE */
 function toggleMode(){
